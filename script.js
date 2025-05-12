@@ -22,20 +22,21 @@ function encryptText() {
         if (cipherMap[char]) {
             encryptedText += cipherMap[char];
         } else {
-            encryptedText += char;  // Jika bukan huruf, tetap masukkan karakter yang sama
+            encryptedText += char;
         }
     }
 
     document.getElementById("outputText").value = encryptedText;
+    generateQRCode(encryptedText);
 }
 
 // Fungsi dekripsi
 function decryptText() {
     let inputText = document.getElementById("inputText").value;
     let decryptedText = '';
-    
-    // Membalikkan cipher map untuk dekripsi
-    const reverseCipherMap = Object.fromEntries(Object.entries(cipherMap).map(([k, v]) => [v, k]));
+    const reverseCipherMap = Object.fromEntries(
+        Object.entries(cipherMap).map(([k, v]) => [v, k])
+    );
 
     let i = 0;
     while (i < inputText.length) {
@@ -58,4 +59,13 @@ function decryptText() {
     }
 
     document.getElementById("outputText").value = decryptedText;
+    generateQRCode(decryptedText);
+}
+
+function generateQRCode(text) {
+    const qr = new QRious({
+        element: document.getElementById("qrcode-canvas"),
+        value: text,
+        size: 200
+    });
 }
