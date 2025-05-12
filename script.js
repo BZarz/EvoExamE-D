@@ -5,6 +5,8 @@ const cipherMap = {
     'k': 'v10l', 'l': 'jg', 'm': 'lk', 'n': 'er', 'o': 'vg',
     'p': 'ok', 'q': 'pl', 'r': 'qw', 's': 'fr', 't': 'sc',
     'u': 'sh', 'v': 'bt', 'w': 'ml', 'x': 'ox', 'y': 'bk', 'z': 'io',
+
+    ':': 'b7','/': 'oik',
     
     'A': 'B0E', 'B': 'C1B', 'C': 'P2K', 'D': 'M3K', 'E': '4LF',
     'F': 'HK5', 'G': 'R6V', 'H': 'O7Z', 'I': 'Y8P', 'J': 'T9E',
