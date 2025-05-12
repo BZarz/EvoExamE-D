@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvoExam Encrypt & Decrypt</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enkripsi & Dekripsi</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.rawgit.com/neocotic/qrious/master/dist/qrious.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Encrypt & Decrypt</h1>
-        <textarea id="inputText" placeholder="Masukkan teks di sini"></textarea>
-        
-        <button onclick="encryptText()">Enkripsi</button>
-        <button onclick="decryptText()">Dekripsi</button>
+  <div class="container">
+    <h1>Encrypt & Decrypt</h1>
+    <textarea id="inputText" placeholder="Masukkan link di sini"></textarea>
+    
+    <button onclick="encryptText()">Enkripsi</button>
+    <button onclick="decryptText()">Dekripsi</button>
 
-        <h2>Hasil:</h2>
-        <textarea id="outputText" placeholder="Hasil akan ditampilkan di sini" readonly></textarea>
+    <h2>Hasil:</h2>
+    <textarea id="outputText" placeholder="Hasil akan ditampilkan di sini" readonly></textarea>
+
+    <div class="qr-container">
+      <h2>QR Code:</h2>
+      <canvas id="qrcode-canvas"></canvas>
     </div>
-    <script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
