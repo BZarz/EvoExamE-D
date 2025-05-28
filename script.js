@@ -2,10 +2,9 @@
 const cipherMap = {
     'a': 'b0e', 'b': 'c1b', 'c': 'p2k', 'd': 'm3k', 'e': '4lf',
     'f': 'hk5', 'g': 'r6v', 'h': 'o7z', 'i': 'y8p', 'j': 't9e',
-    'k': 'v10l', 'l': 'jg', 'm': 'lk', 'n': 'er', 'o': 'bg',
-    'p': 'ef', 'q': 'pl', 'r': 'qw', 's': 'ds', 't': 'sc',
-    'u': 'sh', 'v': 'bt', 'w': 'ml', 'x': 'ap', 'y': 'bk', 'z': 'io',
-    ':': 'bdj', '/': 'blk'
+    'k': 'v10l', 'l': 'jg', 'm': 'lk', 'n': 'er', 'o': 'vg',
+    'p': 'ok', 'q': 'pl', 'r': 'qw', 's': 'fr', 't': 'sc',
+    'u': 'sh', 'v': 'bt', 'w': 'ml', 'x': 'ox', 'y': 'bk', 'z': 'io', ':': 'bdj', '/': 'blk',
     
     'A': 'B0E', 'B': 'C1B', 'C': 'P2K', 'D': 'M3K', 'E': '4LF',
     'F': 'HK5', 'G': 'R6V', 'H': 'O7Z', 'I': 'Y8P', 'J': 'T9E',
@@ -63,6 +62,7 @@ function decryptText() {
     generateQRCode(decryptedText);
 }
 
+// Fungsi untuk menghasilkan QR Code dari teks di output
 function generateQRCode(text) {
     const qr = new QRious({
         element: document.getElementById("qrcode-canvas"),
