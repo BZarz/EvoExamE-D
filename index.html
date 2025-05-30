@@ -10,8 +10,18 @@
 <body>
   <div class="container">
     <h1>Encrypt & Decrypt</h1>
+
     <textarea id="inputText" placeholder="Masukkan link di sini"></textarea>
-    
+
+    <!-- 🔽 Dropdown Versi Enkripsi -->
+    <label for="versionSelector">Pilih Versi Enkripsi:</label>
+    <select id="versionSelector">
+      <option value="A">Versi 1.7</option>
+      <option value="B">Versi 1.8</option>
+    </select>
+
+    <br />
+
     <button onclick="encryptText()">Enkripsi</button>
     <button onclick="decryptText()">Dekripsi</button>
 
