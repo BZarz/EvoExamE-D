@@ -5,7 +5,7 @@ const cipherMap = {
         'f': 'hk5', 'g': 'r6v', 'h': 'o7z', 'i': 'y8p', 'j': 't9e',
         'k': 'v10l', 'l': 'jg', 'm': 'lk', 'n': 'er', 'o': 'vg',
         'p': 'ok', 'q': 'pl', 'r': 'qw', 's': 'fr', 't': 'sc',
-        'u': 'sh', 'v': 'bt', 'w': 'ml', 'x': 'ox', 'y': 'bk', 'z': 'io', 'bdj' : ':', 'blk' : '/',
+        'u': 'sh', 'v': 'bt', 'w': 'ml', 'x': 'ox', 'y': 'bk', 'z': 'io', ':' : 'bdj', '/' : 'blk',
         
         'A': 'B0E', 'B': 'C1B', 'C': 'P2K', 'D': 'M3K', 'E': '4LF',
         'F': 'HK5', 'G': 'R6V', 'H': 'O7Z', 'I': 'Y8P', 'J': 'T9E',
@@ -18,7 +18,7 @@ const cipherMap = {
         'f': 'bk9', 'g': 'v4h', 'h': 'n5u', 'i': 'b3x', 'j': 'bg0',
         'k': 'bgu3', 'l': 'vk', 'm': 'xd', 'n': '97', 'o': 'qw',
         'p': 'bv', 'q': 'vfb', 'r': 'bij', 's': 'zxx', 't': 'vfi',
-        'u': '0fr', 'v': 'cdg', 'w': 'vcn', 'x': '3er', 'y': 'aiw', 'z': 'io', 'bdj' : ':', 'blk' : '/',
+        'u': '0fr', 'v': 'cdg', 'w': 'vcn', 'x': '3er', 'y': 'aiw', 'z': 'io', ':' : 'bdj', '/' : 'blk',
         
         'A': 'VFN1', 'B': '0AI2', 'C': 'VF83', 'D': 'VI94', 'E': 'F8E5',
         'F': 'BK96', 'G': 'V4H7', 'H': 'N5U8', 'I': 'B3X9', 'J': 'BG00',
