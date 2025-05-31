@@ -16,13 +16,13 @@ const cipherMap = {
     B: {
         'a': 'vfn', 'b': '0ai', 'c': 'vf8', 'd': 'vi9', 'e': 'f8e',
         'f': 'bk9', 'g': 'v4h', 'h': 'n5u', 'i': 'b3x', 'j': 'bg0',
-        'k': 'bgu3', 'l': 'vk', 'm': 'xd', 'n': '97', 'o': 'qw',
+        'k': 'bgu3', 'l': 'vk', 'm': 'xd', 'n': '97b', 'o': 'qw',
         'p': 'bv', 'q': 'vfb', 'r': 'bij', 's': 'zxx', 't': 'vfi',
         'u': '0fr', 'v': 'cdg', 'w': 'vcn', 'x': '3er', 'y': 'aiw', 'z': 'io', ':' : 'bdj', '/' : 'blk',
         
         'A': 'VFN', 'B': '0AI', 'C': 'VF8', 'D': 'VI9', 'E': 'F8E',
         'F': 'BK9', 'G': 'V4H', 'H': 'N5U', 'I': 'B3X', 'J': 'BG0',
-        'K': 'BGU3', 'L': 'VK',  'M': 'XD',  'N': '973',  'O': 'QW',
+        'K': 'BGU3', 'L': 'VK',  'M': 'XD',  'N': '97B',  'O': 'QW',
         'P': 'BV',  'Q': 'VFB', 'R': 'BIJ', 'S': 'ZXX', 'T': 'VFI',
         'U': '0FR', 'V': 'CDG', 'W': 'VCN', 'X': '3ER', 'Y': 'AIW',
         'Z': 'IO'
