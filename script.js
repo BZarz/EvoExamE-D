@@ -20,12 +20,13 @@ const cipherMap = {
         'p': 'bv', 'q': 'vfb', 'r': 'bij', 's': 'zxx', 't': 'vfi',
         'u': '0fr', 'v': 'cdg', 'w': 'vcn', 'x': '3er', 'y': 'aiw', 'z': 'io', ':' : 'bdj', '/' : 'blk',
         
-        'A': 'VFN1', 'B': '0AI2', 'C': 'VF83', 'D': 'VI94', 'E': 'F8E5',
-        'F': 'BK96', 'G': 'V4H7', 'H': 'N5U8', 'I': 'B3X9', 'J': 'BG00',
-        'K': 'BGU31', 'L': 'VK2',  'M': 'XD3',  'N': '973',  'O': 'QW4',
-        'P': 'BV5',  'Q': 'VFB6', 'R': 'BIJ7', 'S': 'ZXX8', 'T': 'VFI9',
-        'U': '0FR0', 'V': 'CDG1', 'W': 'VCN2', 'X': '3ER3', 'Y': 'AIW4',
-        'Z': 'IO5'
+        'A': 'VFN', 'B': '0AI', 'C': 'VF8', 'D': 'VI9', 'E': 'F8E',
+        'F': 'BK9', 'G': 'V4H', 'H': 'N5U', 'I': 'B3X', 'J': 'BG0',
+        'K': 'BGU3', 'L': 'VK',  'M': 'XD',  'N': '973',  'O': 'QW',
+        'P': 'BV',  'Q': 'VFB', 'R': 'BIJ', 'S': 'ZXX', 'T': 'VFI',
+        'U': '0FR', 'V': 'CDG', 'W': 'VCN', 'X': '3ER', 'Y': 'AIW',
+        'Z': 'IO'
+
     }
 };
 
