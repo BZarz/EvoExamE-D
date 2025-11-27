@@ -87,14 +87,23 @@ function decryptText() {
 // Fungsi untuk menghasilkan QR Code dari teks di output
 function generateQRCode(text) {
     const canvas = document.getElementById("qrcode-canvas");
-    // desired display size in CSS pixels
-    const displaySize = parseInt(canvas.getAttribute('width')) || 192;
+    // Determine displayed CSS width of the canvas so responsive CSS remains authoritative.
+    // Use getBoundingClientRect(); fall back to width attribute or viewport-based size.
     const ratio = window.devicePixelRatio || 1;
+    let cssWidth = Math.round(canvas.getBoundingClientRect().width) || 0;
+    if (!cssWidth) {
+        const displaySizeAttr = canvas.getAttribute('width');
+        if (displaySizeAttr) {
+            cssWidth = parseInt(displaySizeAttr);
+        } else {
+            cssWidth = Math.min(220, Math.max(160, Math.floor(window.innerWidth * 0.6)));
+        }
+    }
+    const displaySize = Math.max(96, cssWidth);
     // set actual canvas pixel size for sharp rendering on HiDPI screens
     canvas.width = displaySize * ratio;
     canvas.height = displaySize * ratio;
-    canvas.style.width = displaySize + 'px';
-    canvas.style.height = displaySize + 'px';
+    // Do NOT set inline style.width/height — let CSS control layout on mobile.
 
     // create QR with high error correction to allow a logo overlay
     const qr = new QRious({
@@ -106,7 +115,7 @@ function generateQRCode(text) {
 
     // draw centered logo (try loading `logo.png`; fallback to generated badge)
     const ctx = canvas.getContext('2d');
-    // logo occupies a smaller fraction to preserve scannability
+    // logo occupies a smaller fraction to preserve scannability (use pixel size)
     const logoSize = Math.floor(canvas.width * 0.18);
 
     function roundRectPath(ctx, x, y, w, h, r) {
