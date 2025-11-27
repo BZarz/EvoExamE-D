@@ -4,33 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Enkripsi & Dekripsi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.rawgit.com/neocotic/qrious/master/dist/qrious.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Encrypt & Decrypt</h1>
+    <div class="header">
+      <div>
+        <h1 class="title">Encrypt & Decrypt</h1>
+        <div class="subtitle">Sederhana — cepat — minimal</div>
+      </div>
+      <div class="small">Masukkan link atau teks, pilih versi, lalu enkripsi/dekripsi.</div>
+    </div>
 
-    <textarea id="inputText" placeholder="Masukkan link di sini"></textarea>
+    <div class="controls">
+      <div>
+        <textarea id="inputText" placeholder="Masukkan link di sini"></textarea>
+        <div class="small">Input</div>
+      </div>
 
-    <!-- 🔽 Dropdown Versi Enkripsi -->
-    <label for="versionSelector">Pilih Versi Enkripsi:</label>
-    <select id="versionSelector">
-      <option value="A">Versi 1.7</option>
-      <option value="B">Versi 1.8</option>
-    </select>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+        <select id="versionSelector" class="select" aria-label="Pilih Versi Enkripsi">
+          <option value="B">Versi 1.8</option>
+        </select>
 
-    <br />
+        <div class="row">
+          <button class="btn primary" onclick="encryptText()">Enkripsi</button>
+          <button class="btn ghost" onclick="decryptText()">Dekripsi</button>
+        </div>
+      </div>
+    </div>
 
-    <button onclick="encryptText()">Enkripsi</button>
-    <button onclick="decryptText()">Dekripsi</button>
+    <div class="result">
+      <div class="small">Hasil</div>
+      <textarea id="outputText" placeholder="Hasil akan ditampilkan di sini" readonly></textarea>
+    </div>
 
-    <h2>Hasil:</h2>
-    <textarea id="outputText" placeholder="Hasil akan ditampilkan di sini" readonly></textarea>
-
-    <div class="qr-container">
-      <h2>QR Code:</h2>
-      <canvas id="qrcode-canvas"></canvas>
+    <div class="qr-container" aria-hidden="false">
+      <canvas id="qrcode-canvas" width="192" height="192"></canvas>
+      <div class="small">QR Code</div>
     </div>
   </div>
 

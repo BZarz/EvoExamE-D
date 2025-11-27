@@ -86,11 +86,78 @@ function decryptText() {
 
 // Fungsi untuk menghasilkan QR Code dari teks di output
 function generateQRCode(text) {
+    const canvas = document.getElementById("qrcode-canvas");
+    // desired display size in CSS pixels
+    const displaySize = parseInt(canvas.getAttribute('width')) || 192;
+    const ratio = window.devicePixelRatio || 1;
+    // set actual canvas pixel size for sharp rendering on HiDPI screens
+    canvas.width = displaySize * ratio;
+    canvas.height = displaySize * ratio;
+    canvas.style.width = displaySize + 'px';
+    canvas.style.height = displaySize + 'px';
+
+    // create QR with high error correction to allow a logo overlay
     const qr = new QRious({
-        element: document.getElementById("qrcode-canvas"),
+        element: canvas,
         value: text,
-        size: 200
+        size: canvas.width,
+        level: 'H'
     });
+
+    // draw centered logo (try loading `logo.png`; fallback to generated badge)
+    const ctx = canvas.getContext('2d');
+    // logo occupies a smaller fraction to preserve scannability
+    const logoSize = Math.floor(canvas.width * 0.18);
+
+    function roundRectPath(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+    }
+
+    const logo = new Image();
+    logo.onload = function() {
+        const x = (canvas.width - logoSize) / 2;
+        const y = (canvas.height - logoSize) / 2;
+        // draw white rounded background for contrast (padding scaled by ratio)
+        const pad = Math.floor(8 * ratio);
+        ctx.save();
+        ctx.fillStyle = '#ffffff';
+        roundRectPath(ctx, x - pad, y - pad, logoSize + pad * 2, logoSize + pad * 2, 12 * ratio);
+        ctx.fill();
+        ctx.restore();
+        ctx.drawImage(logo, x, y, logoSize, logoSize);
+    };
+    logo.onerror = function(e) {
+        // fallback: draw a circular badge with an initial
+        console.warn('logo.png failed to load, falling back to generated badge', e);
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        ctx.save();
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(cx, cy, logoSize / 2 + 12 * ratio, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#0b7285';
+        ctx.beginPath();
+        ctx.arc(cx, cy, logoSize / 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold ${Math.floor(logoSize * 0.6)}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('E', cx, cy);
+        ctx.restore();
+    };
+
+    // Try to load a local `logo.png` file. If you want a custom file,
+    // place it next to `index.html` and name it `logo.png`.
+    // Use an explicit relative path and avoid crossOrigin for local files.
+    logo.src = './logo.png';
 }
 
 
